@@ -1,0 +1,4 @@
+import {demoPlan} from './demo';import {Plan} from './types';
+export async function generateRoadPlan(input:{from:string;to:string;date:string;time:string;vehicle:string}):Promise<Plan>{await new Promise(r=>setTimeout(r,400));return {...demoPlan,id:crypto.randomUUID?.()??'local-plan',from:(input.from||demoPlan.from).toUpperCase(),to:(input.to||demoPlan.to).toUpperCase(),date:input.date||demoPlan.date,etd:input.time||demoPlan.etd,vehicle:input.vehicle||demoPlan.vehicle}}
+export function savePlan(plan:Plan){if(typeof window==='undefined')return;const plans=JSON.parse(localStorage.getItem('roadbrief.plans')||'[]');localStorage.setItem('roadbrief.plans',JSON.stringify([plan,...plans.filter((p:Plan)=>p.id!==plan.id)]))}
+export function loadPlans():Plan[]{if(typeof window==='undefined')return[];return JSON.parse(localStorage.getItem('roadbrief.plans')||'[]')}
