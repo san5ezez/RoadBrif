@@ -1,0 +1,1 @@
+import {Shell,Card} from '@/components/ui';export default function Page(){return <Shell><h1 className="text-3xl font-bold mb-6">Settings</h1><Card><p className="text-slate-300">RoadBrief module for Settings. Demo Mode is active; server-side providers can be connected through environment variables without changing the interface.</p></Card></Shell>}
